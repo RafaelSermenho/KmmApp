@@ -23,6 +23,12 @@ repositories {
 }
 kotlin {
     android()
+    val onPhone = System.getenv("SDK_NAME")?.startsWith("iphoneos") ?: false
+    if (onPhone) {
+        iosArm64("ios")
+    } else {
+        iosX64("ios")
+    }
     ios {
         binaries {
             framework {
@@ -83,6 +89,13 @@ android {
         }
     }
 }
+
+sqldelight {
+    database("AppDatabase") {
+        packageName = "dev.rafaelsermenho.handson.kmmapp.shared.cache"
+    }
+}
+
 val packForXcode by tasks.creating(Sync::class) {
     group = "build"
     val mode = System.getenv("CONFIGURATION") ?: "DEBUG"
