@@ -6,11 +6,11 @@ val ktorVersion = "1.4.0"
 val sqlDelightVersion: String by project
 
 plugins {
-    kotlin("plugin.serialization")
     kotlin("multiplatform")
-    id("com.squareup.sqldelight")
+    kotlin("plugin.serialization")
     id("com.android.library")
     id("kotlin-android-extensions")
+    id("com.squareup.sqldelight")
 }
 group = "dev.rafaelsermenho.handson.kmmapp"
 version = "1.0-SNAPSHOT"
